@@ -14,6 +14,7 @@ if /I "%MUSIC%"=="false" (
 )
 
 Tools\nircmd\nircmd exec hide Tools\vlc\vlc --intf dummy --dummy-quiet --extraintf rc --rc-host localhost:12345 --recursive --random --loop
+timeout /T 2 >nul
 Tools\nircmd\nircmd execmd "echo volume 0 | Tools\ncat\ncat localhost 12345"
 Tools\nircmd\nircmd execmd "echo add ..\ROMs\music | Tools\ncat\ncat localhost 12345"
 
