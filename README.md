@@ -72,6 +72,7 @@ ES-DE\BG_MPlayer\config.ini
 
 Inside that file, you can:
 
+- Enable or disable background music playback
 - Set the background music **volume**
 - Configure **fade in/out effects**
 - Enable playback **during gameplay**
