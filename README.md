@@ -4,6 +4,8 @@
 
 It uses **VLC** to play music, and **all required dependencies are included** in the installation package — no separate setup needed.
 
+This project was created and tested on **Windows 11**. Compatibility with other versions of Windows (such as Windows 10 or earlier) is **not guaranteed**.
+
 ---
 
 ## 🛠️ Installation
