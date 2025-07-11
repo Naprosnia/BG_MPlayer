@@ -9,8 +9,8 @@ It uses **VLC** to play music, and **all required dependencies are included** in
 ## 🛠️ Installation
 
 1. Download the latest `.zip` file from the **[Releases](../../releases)** section.
-2. Extract the contents into the **root folder of ES-DE**.
-3. Make sure **"Custom Scripts"** are enabled in the ES-DE settings.
+2. Extract the contents into the **root folder of ES-DE installation**.
+3. Make sure **"Enable custom event scripts"** are enabled in the ES-DE settings.
 
 Once installed, background music should start automatically when you launch ES-DE.
 
@@ -20,7 +20,7 @@ Once installed, background music should start automatically when you launch ES-D
 
 Here’s an overview of the files and folders included in the package:
 
-- ES-DE [root of ES-DE ]
+- ES-DE [ root of ES-DE ]
   - ROMs
     - music
       - demo_music.mp3
@@ -89,7 +89,7 @@ Feel free to use or adapt it as you like — no guarantees or official support a
 
 ## 💬 Contact
 
-You can find me on the **ES-DE Frontend Discord**:  
+You can find me on the official **ES-DE Frontend** Discord:  
 🔗 https://discord.gg/stRVK9gMuE
 
 ---
