@@ -16,6 +16,30 @@ Once installed, background music should start automatically when you launch ES-D
 
 ---
 
+## 📂 File Structure
+
+Here’s an overview of the files and folders included in the package:
+
+ES-DE\roms\music\demo_music.mp3 ← Example music file
+ES-DE\ES-DE\scripts\game-end\BG_MPlayer_game-end.bat
+ES-DE\ES-DE\scripts\game-start\BG_MPlayer_game-start.bat
+ES-DE\ES-DE\scripts\quit\BG_MPlayer_quit.bat
+ES-DE\ES-DE\scripts\startup\BG_MPlayer_startup.bat
+
+ES-DE\BG_MPlayer\BG_MPlayer_Close.bat
+ES-DE\BG_MPlayer\BG_MPlayer_Pause.bat
+ES-DE\BG_MPlayer\BG_MPlayer_Resume.bat
+ES-DE\BG_MPlayer\BG_MPlayer_Start.bat
+ES-DE\BG_MPlayer\config.ini ← Configuration file
+
+ES-DE\BG_MPlayer\Tools\vlc\vlc.exe ← VLC media player (embedded)
+ES-DE\BG_MPlayer\Tools\ncat\ncat.exe ← Network utility
+ES-DE\BG_MPlayer\Tools\nircmd\nircmd.exe ← Lightweight command-line tool
+
+All files are self-contained and work out of the box — no need for external installations.
+
+---
+
 ## 🎵 Music Folder
 
 Music files should be placed in:
