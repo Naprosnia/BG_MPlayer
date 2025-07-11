@@ -11,8 +11,8 @@ This project was created and tested on **Windows 11**. Compatibility with other 
 ## 🛠️ Installation
 
 1. Download the latest `.zip` file from the **[Releases](../../releases)** section.
-2. Extract the contents into the **root folder of ES-DE installation**.
-3. Make sure **"Enable custom event scripts"** are enabled in the ES-DE settings.
+2. Extract the **contents** into the **root folder of ES-DE installation**.
+3. Make sure **"Enable custom event scripts"** is enabled in the **"Other Settings"** section of the ES-DE menu.
 
 Once installed, background music should start automatically when you launch ES-DE.
 
