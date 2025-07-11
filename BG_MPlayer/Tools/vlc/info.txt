@@ -1,0 +1,1 @@
+VLC files, including vlc.exe, go in this folder.
