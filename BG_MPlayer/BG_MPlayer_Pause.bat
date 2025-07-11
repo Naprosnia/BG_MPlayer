@@ -8,13 +8,18 @@ for /f "tokens=1,2 delims==" %%a in (config.ini) do (
 	set "%%a=%%b"
 )
 
+if /I "%MUSIC%"=="false" (
+	endlocal
+	goto :eof
+)
+
 set PORT=12345
 
 set STARTVOL=%MUSIC_VOLUME%
 
 if /I "%NON_STOP%"=="true" (
 	if /I "%FADE_TIME%"=="disabled" (
-		Tools\nircmd\nircmd execmd "echo volume %NON_STOP_VOLUME% | Tools\nmap\ncat localhost %PORT%"
+		Tools\nircmd\nircmd execmd "echo volume %NON_STOP_VOLUME% | Tools\ncat\ncat localhost %PORT%"
 		endlocal
 		goto :eof
 	)
@@ -43,12 +48,12 @@ echo WScript.Sleep %INTERVAL% > sleep.vbs
 for /L %%i in (1,1,%STEPS%) do (
 	set /A NEWVOL=STARTVOL + ^(^(ENDVOL - STARTVOL^) * %%i / STEPS^)
 	rem echo Step %%i: !NEWVOL!
-	Tools\nircmd\nircmd execmd "echo volume !NEWVOL! | Tools\nmap\ncat localhost %PORT%"
+	Tools\nircmd\nircmd execmd "echo volume !NEWVOL! | Tools\ncat\ncat localhost %PORT%"
 	cscript //NoLogo sleep.vbs
 )
 
 if /I "%NON_STOP%"=="false" (
-	Tools\nircmd\nircmd execmd "echo pause | Tools\nmap\ncat localhost %PORT%"
+	Tools\nircmd\nircmd execmd "echo pause | Tools\ncat\ncat localhost %PORT%"
 )
 
 del sleep.vbs
