@@ -2,7 +2,11 @@
 
 **BG_MPlayer** is a simple set of scripts that adds background music playback to the **Windows version of ES-DE** (https://es-de.org/).
 
-It uses **VLC** to play music, and **all required dependencies are included** in the installation package — no separate setup needed.
+It supports two playback engines:  
+- **fmedia** – lightweight and fast (default)  
+- **VLC** – heavier but more versatile
+
+All required dependencies are included in the installation package — no separate setup needed.
 
 This project was created and tested on **Windows 11**. Compatibility with other versions of Windows (such as Windows 10 or earlier) is **not guaranteed**.
 
@@ -43,12 +47,16 @@ Here’s an overview of the files and folders included in the package:
       - BG_MPlayer_Start.bat
       - config.ini              ← Configuration file with user-adjustable settings
       - Tools
-        - vlc
-          - vlc.exe        ← VLC media player files
+        - fmedia
+          - fmedia.exe     ← fmedia media player files (default and lightweight)
         - ncat
           - ncat.exe       ← Network utility used for communication with player
         - nircmd
           - nircmd.exe     ← Lightweight command-line tool for system-level actions
+        - vlc
+          - vlc.exe        ← VLC media player files
+        - math
+          - calc.exe       ← Arithmetic library for cmd and bat
 
 All files are self-contained and work out of the box — no need for external installations.
 
@@ -56,9 +64,7 @@ All files are self-contained and work out of the box — no need for external in
 
 ## 🎵 Music Folder
 
-Music files should be placed in:
-
-ES-DE\ROMs\music
+Music files should be placed in: ES-DE\ROMs\music
 
 You can place audio files directly in that folder or organize them into subfolders — the player will **shuffle and play all files** randomly.
 
@@ -66,14 +72,13 @@ You can place audio files directly in that folder or organize them into subfolde
 
 ## ⚙️ Configuration
 
-All settings can be adjusted in the `config.ini` file located at:
-
-ES-DE\BG_MPlayer\config.ini
+All settings can be adjusted in the `config.ini` file located at: ES-DE\BG_MPlayer\config.ini
 
 Inside that file, you can:
 
 - Enable or disable background music playback
 - Set the background music **volume**
+- Choose the **audio player** (`fmedia` or `vlc`)
 - Configure **fade in/out effects**
 - Enable playback **during gameplay**
 - Tweak other small options to better suit your preferences
@@ -82,29 +87,9 @@ Each option is explained with comments directly in the file.
 
 ---
 
-⚠️ Performance Notice
+### 🎧 Player Options
 
-Running ES-DE and BG_MPlayer from an external drive (e.g. USB) may result in significant delays, especially during VLC startup.
-For optimal performance, it's recommended to install and run from a local/internal drive.
+You can choose which player to use by setting the `PLAYER` value in `config.ini`:
 
----
-
-## ❗ Disclaimer
-
-This project is **not actively maintained**. It was developed for **my personal use**, and I'm sharing it in case others find it useful too.
-
-Feel free to use or adapt it as you like — no guarantees or official support are provided.
-
----
-
-## 💬 Contact
-
-You can find me on the official **ES-DE Frontend** Discord:  
-🔗 https://discord.gg/stRVK9gMuE
-
----
-
-## 📄 License
-
-This project is licensed under the **GNU General Public License v3.0**.  
-See the [LICENSE](LICENSE) file for details.
+```ini
+PLAYER=fmedia
