@@ -1,0 +1,865 @@
+# fmedia v1.17 GUI
+
+menu mfile {
+	item "&Open..." {
+		action OPEN
+		hotkey "Ctrl+O"
+	}
+	item "&Add..." {
+		action ADD
+		hotkey "Insert"
+	}
+	item "Add &URL..." {
+		action ADDURL
+		hotkey "Ctrl+U"
+	}
+	item "-" {
+	}
+	item "Show Media Info" {
+		action A_FILE_SHOWINFO
+		hotkey "I"
+	}
+	item "Analyze && Show PCM Info" {
+		action A_FILE_SHOWPCM
+	}
+	item "C&opy to Clipboard" {
+		action A_FILE_COPYFILE
+		hotkey "Ctrl+C"
+	}
+	item "Copy File&name to Clipboard" {
+		action A_FILE_COPYFN
+	}
+	item "Show Fi&le in Explorer" {
+		action A_FILE_SHOWDIR
+	}
+	item "&Delete From Disk" {
+		action A_FILE_DELFILE
+		hotkey "Shift+Delete"
+	}
+	item "-" {
+	}
+	item "Theme: Default" {
+		action SETTHEME
+	}
+	item "-" {
+	}
+	item "&Minimize to Tray" {
+		action HIDE
+		hotkey "Ctrl+M"
+	}
+	item "E&xit" {
+		action QUIT
+	}
+}
+
+menu mlist {
+	item "&New Tab" {
+		action A_LIST_NEW
+		hotkey "Ctrl+N"
+	}
+	item "Close Tab" {
+		action A_LIST_CLOSE
+		hotkey "Ctrl+W"
+	}
+	item "&Save Playlist..." {
+		action A_LIST_SAVELIST
+		hotkey "Ctrl+S"
+	}
+	item "Read &Meta Tags" {
+		action A_LIST_READMETA
+	}
+	item "-" {
+	}
+	item "Select &All" {
+		action A_LIST_SELALL
+		hotkey "Ctrl+A"
+	}
+	item "In&vert Selection" {
+		action A_LIST_SELINVERT
+	}
+	item "Selection Follows Cursor" {
+		action A_LIST_SEL_AFTER_CUR
+	}
+	item "-" {
+	}
+	item "&Remove" {
+		action A_LIST_REMOVE
+		hotkey "Delete"
+	}
+	item "Remove &Dead Items" {
+		action A_LIST_RMDEAD
+		hotkey "Alt+Delete"
+	}
+	item "&Clear" {
+		action A_LIST_CLEAR
+	}
+	item "-" {
+	}
+	item "&Filter..." {
+		action FILTER_SHOW
+		hotkey "Ctrl+F"
+	}
+	item "Random" {
+		action A_LIST_RANDOM
+	}
+	item "Sort: Random" {
+		action A_LIST_SORTRANDOM
+	}
+	item "-" {
+	}
+	item "Show Favorites" {
+		action FAV_SHOW
+	}
+	item "Add to Favorites" {
+		action FAV_ADD
+	}
+}
+
+menu mplay {
+	item "&Play/Pause" {
+		action A_PLAY_PAUSE
+		hotkey "Space"
+	}
+	item "&Stop" {
+		action A_PLAY_STOP
+		hotkey "S"
+	}
+	item "Stop After Current" {
+		action A_PLAY_STOP_AFTER
+		hotkey "Shift+S"
+	}
+	item "&Next" {
+		action A_PLAY_NEXT
+		hotkey "N"
+	}
+	item "P&revious" {
+		action A_PLAY_PREV
+		hotkey "P"
+	}
+	item "Repeat: None/Track/All" {
+		action A_PLAY_REPEAT
+	}
+	item "-" {
+	}
+	item "Seek &Forward" {
+		action A_PLAY_FFWD
+		hotkey "Right"
+	}
+	item "Seek &Back" {
+		action A_PLAY_RWND
+		hotkey "Left"
+	}
+	item "Leap Forward" {
+		action A_PLAY_LEAP_FWD
+		hotkey "Ctrl+Right"
+	}
+	item "Leap Back" {
+		action A_PLAY_LEAP_BACK
+		hotkey "Ctrl+Left"
+	}
+	item "Go To..." {
+		action GOTO_SHOW
+		hotkey "Ctrl+G"
+	}
+	item "Set Marker" {
+		action A_PLAY_SETGOPOS
+		hotkey "Shift+G"
+	}
+	item "Jump To Marker" {
+		action A_PLAY_GOPOS
+		hotkey "G"
+	}
+	item "-" {
+	}
+	item "Volume &Up" {
+		action A_PLAY_VOLUP
+		hotkey "Up"
+	}
+	item "Volume &Down" {
+		action A_PLAY_VOLDOWN
+		hotkey "Down"
+	}
+	item "Reset Volume" {
+		action A_PLAY_VOLRESET
+	}
+	item "-" {
+	}
+	item "Select Audio Device..." {
+		action DEVLIST_SHOW
+	}
+	item "Properties..." {
+		action A_SHOW_PROPS
+	}
+}
+
+menu mrec {
+	item "&Record..." {
+		action REC_SETS
+		hotkey "Ctrl+Shift+R"
+	}
+	item "&Quick Start/Stop" {
+		action REC
+		hotkey "Ctrl+R"
+	}
+	item "&Play and Record" {
+		action PLAYREC
+	}
+	item "Play &Mixed and Record" {
+		action MIXREC
+	}
+	item "Open Recordings Fo&lder" {
+		action SHOWRECS
+	}
+	item "Select Audio Device..." {
+		action DEVLIST_SHOWREC
+	}
+}
+
+menu mconvert {
+	item "&Convert..." {
+		action SHOWCONVERT
+		hotkey "Ctrl+T"
+	}
+	item "Set Seek Position" {
+		action SETCONVPOS_SEEK
+		hotkey "["
+	}
+	item "Set Until Position" {
+		action SETCONVPOS_UNTIL
+		hotkey "]"
+	}
+}
+
+menu mhelp {
+	item "Edit Default Settings..." {
+		action CONF_EDIT
+	}
+	item "Edit User Settings..." {
+		action USRCONF_EDIT
+	}
+	item "Edit GUI..." {
+		action FMEDGUI_EDIT
+	}
+	item "Edit GUI Themes..." {
+		action THEMES_EDIT
+	}
+	item "-" {
+	}
+	item "Show Readme File..." {
+		action README_SHOW
+	}
+	item "Show Changelog..." {
+		action CHANGES_SHOW
+	}
+	item "&About" {
+		action ABOUT
+	}
+}
+
+menu mlist_popup {
+	item "Play" {
+		style default
+		action PLAY
+	}
+	item "&Remove" {
+		action A_LIST_REMOVE
+	}
+	item "Show Media Info" {
+		action A_FILE_SHOWINFO
+	}
+	item "To Next Playlist" {
+		action TO_NXTLIST
+	}
+	item "C&opy to Clipboard" {
+		action A_FILE_COPYFILE
+	}
+	item "Copy File&name to Clipboard" {
+		action A_FILE_COPYFN
+	}
+	item "Show Fi&le in Explorer" {
+		action A_FILE_SHOWDIR
+	}
+	item "&Delete From Disk" {
+		action A_FILE_DELFILE
+	}
+}
+
+menu mtray {
+	item "fmedia" {
+		style default
+		action SHOW
+	}
+	item "Playback" {
+		submenu mplay
+	}
+	item "Exit" {
+		action QUIT
+	}
+}
+
+dialog dlg {
+	filter "Input (*.mp3;*.ogg;*.opus;*.mpc;*.flac;*.m4a;*.mp4;*.mka;*.mkv;*.wv;*.ape;*.wav;*.m3u;*.m3u8;*.pls;*.cue)\x00*.mp3;*.ogg;*.opus;*.mpc;*.flac;*.m4a;*.mp4;*.mka;*.mkv;*.wv;*.ape;*.wav;*.m3u;*.m3u8;*.pls;*.cue\x00Output (*.ogg;*.opus;*.mp3;*.flac;*.m4a;*.wav)\x00*.ogg;*.opus;*.mp3;*.flac;*.m4a;*.wav\x00Playlists (*.m3u8;*.m3u)\x00*.m3u8;*.m3u\x00All (*.*)\x00*.*\x00\x00"
+}
+
+window wmain {
+	title "fmedia"
+	position 100 100 380 300
+	borderstick 7
+	# style visible
+	icon {
+		resource 2
+	}
+	font {
+		name Arial
+		height 10
+	}
+
+	mainmenu mm {
+		item "&File" {
+			submenu mfile
+		}
+		item "&List" {
+			submenu mlist
+		}
+		item "&Playback" {
+			submenu mplay
+		}
+		item "&Record" {
+			submenu mrec
+		}
+		item "&Convert" {
+			submenu mconvert
+		}
+		item "&Help" {
+			submenu mhelp
+		}
+	}
+
+	button bpause {
+		position 5 5 30 30
+		style visible
+		tooltip "Play/Pause"
+		action A_PLAY_PAUSE
+		icon {
+			resource 3
+			size 30 30
+		}
+	}
+
+	button bstop {
+		position 40 5 30 30
+		style visible
+		tooltip "Stop"
+		action A_PLAY_STOP
+		icon {
+			resource 4
+			size 30 30
+		}
+	}
+
+	button bprev {
+		position 75 5 30 30
+		style visible
+		tooltip "Previous"
+		action A_PLAY_PREV
+		icon {
+			resource 5
+			size 30 30
+		}
+	}
+
+	button bnext {
+		position 110 5 30 30
+		style visible
+		tooltip "Next"
+		action A_PLAY_NEXT
+		icon {
+			resource 6
+			size 30 30
+		}
+	}
+
+	label lpos {
+		position 155 10 150 20
+		style visible
+		font {
+			name Arial
+			height 12
+			style bold
+		}
+	}
+
+	trackbar tpos {
+		position 0 42 300 20
+		style no_ticks both visible
+		range 0
+		page_size 15
+		onscrolling SEEKING
+		onscroll A_PLAY_SEEK
+	}
+
+	trackbar tvol {
+		position 300 10 100 20
+		style no_ticks both visible
+		range 125
+		value 100
+		page_size 5
+		onscrolling A_PLAY_VOL
+	}
+
+	tab tabs {
+		position 0 65 300 20
+		style visible
+		onchange A_LIST_SEL
+	}
+
+	listview vlist {
+		position 0 85 360 175
+		style explorer_theme grid_lines multi_select visible
+		dblclick PLAY
+		popupmenu mlist_popup
+
+		column "#" {
+			width 35
+			align right
+		}
+		column Artist {
+		}
+		column Title {
+			width 200
+		}
+		column Duration {
+			width 50
+			align right
+		}
+		column Info {
+		}
+		column Date {
+		}
+		column Album {
+		}
+		column Filename {
+		}
+	}
+
+	paned pntop {
+		child tvol {
+			move x
+		}
+	}
+	paned pnpos {
+		child tpos {
+			resize cx
+		}
+	}
+	paned pntabs {
+		child tabs {
+			resize cx
+		}
+	}
+	paned pnlist {
+		child vlist {
+			resize cx cy
+		}
+	}
+
+	statusbar stbar {
+		style visible
+		parts 100 -1
+	}
+
+	trayicon tray_icon {
+		popupmenu mtray
+		lclick SHOW
+	}
+}
+
+window wconvert {
+	parent wmain
+	position 300 100 300 200
+	style popup
+	title "Convert"
+
+	font {
+		name Arial
+		height 10
+	}
+
+	mainmenu mmconv {
+		item "&Convert!" {
+			action CONVERT
+		}
+	}
+
+	label lfn {
+		position 0 0 200 15
+		text "Convert files to:"
+		style visible
+	}
+
+	combobox eout {
+		position 0 15 200 25
+		style visible
+	}
+
+	button boutbrowse {
+		position 220 15 35 25
+		style visible
+		text "..."
+		action OUTBROWSE
+		tooltip "Select output directory"
+	}
+
+	label lsets {
+		position 0 40 300 15
+		text "Settings (click on the middle column to modify):"
+		style visible
+	}
+
+	listview vsets {
+		position 0 55 250 100
+		style edit_labels explorer_theme grid_lines visible
+
+		lclick CVT_SETS_EDIT
+
+		column Setting {
+		}
+		column Value {
+		}
+		column Description {
+		}
+	}
+
+	paned pnout {
+		child eout {
+			resize cx
+		}
+		child boutbrowse {
+			move x
+		}
+	}
+
+	paned pnsets {
+		child vsets {
+			resize cx cy
+		}
+	}
+}
+
+window wrec {
+	parent wmain
+	position 300 100 300 200
+	style popup
+	title "Record"
+
+	font {
+		name Arial
+		height 10
+	}
+
+	mainmenu mmrec {
+		item "&Start/Stop" {
+			action REC
+		}
+	}
+
+	label lfn {
+		position 0 0 200 15
+		text "Output filename template:"
+		style visible
+	}
+
+	editbox eout {
+		position 0 15 200 25
+		style visible
+	}
+
+	button boutbrowse {
+		position 220 15 35 25
+		style visible
+		text "..."
+		action OUTBROWSE
+	}
+
+	label lsets {
+		position 0 40 300 15
+		text "Settings (click on the middle column to modify):"
+		style visible
+	}
+
+	listview vsets {
+		position 0 55 250 100
+		style edit_labels explorer_theme grid_lines visible
+
+		lclick CVT_SETS_EDIT
+
+		column Setting {
+		}
+		column Value {
+		}
+		column Description {
+		}
+	}
+
+	paned pnout {
+		child eout {
+			resize cx
+		}
+		child boutbrowse {
+			move x
+		}
+	}
+
+	paned pnsets {
+		child vsets {
+			resize cx cy
+		}
+	}
+}
+
+window wdev {
+	parent wmain
+	title "Choose an Audio Device"
+	position 300 300 400 200
+	style popup
+	opacity 90
+	font {
+		name Arial
+		height 10
+	}
+
+	listview vdev {
+		position 0 0 250 100
+		style explorer_theme grid_lines visible
+		column "#" {
+			width 20
+		}
+		column "Name" {
+			width 300
+		}
+	}
+
+	button bok {
+		position 0 110 50 25
+		style visible
+		text "OK"
+		action DEVLIST_SELOK
+	}
+
+	paned pn {
+		child vdev {
+			resize cx
+		}
+	}
+}
+
+window winfo {
+	parent wmain
+	position 300 100 300 500
+	style popup
+
+	listview vinfo {
+		position 0 0 100 100
+		style edit_labels explorer_theme grid_lines multi_select visible
+
+		lclick INFOEDIT
+
+		column Name {
+		}
+		column Value {
+			width 200
+		}
+	}
+
+	paned pninfo {
+		child vinfo {
+			resize cx cy
+		}
+	}
+}
+
+window wgoto {
+	parent wmain
+	title "Go To"
+	position 300 300 100 120
+	style popup
+	opacity 90
+	font {
+		name Arial
+		height 10
+	}
+
+	editbox etime {
+		position 10 10 100 25
+		style visible
+	}
+
+	button bgo {
+		position 10 40 50 25
+		style visible
+		text "Go!"
+		action A_PLAY_GOTO
+	}
+}
+
+window wabout {
+	parent wmain
+	title "About fmedia"
+	position 300 300 425 175
+	style popup
+	opacity 90
+
+	image ico {
+		style visible
+		position 0 5 85 85
+		icon {
+			resource 2
+			size 128 128
+		}
+	}
+
+	label labout {
+		position 130 15 300 80
+		style visible
+		font {
+			name Arial
+			height 12
+		}
+	}
+
+	label lurl {
+		position 130 100 215 25
+		style visible
+		font {
+			name Arial
+			height 12
+			style underline
+		}
+		cursor hand
+		color blue
+		onclick OPEN_HOMEPAGE
+	}
+}
+
+window wlog {
+	parent wmain
+	title "Log"
+	position 300 300 400 200
+	style popup
+
+	text tlog {
+		position 0 0 100 100
+		style visible
+		font {
+			name "Courier New"
+			height 8
+		}
+	}
+
+	paned pnlog {
+		child tlog {
+			resize cx cy
+		}
+	}
+}
+
+window wuri {
+	parent wmain
+	title "Add URL"
+	position 300 300 400 100
+	style popup
+	opacity 90
+	font {
+		name Arial
+		height 10
+	}
+
+	editbox turi {
+		position 0 0 100 25
+		style visible
+	}
+
+	button bok {
+		position 0 25 50 25
+		style visible
+		text "OK"
+		action URL_ADD
+	}
+
+	button bcancel {
+		position 50 25 50 25
+		style visible
+		text "Cancel"
+		action URL_CLOSE
+	}
+
+	paned pnuri {
+		child turi {
+			resize cx
+		}
+	}
+}
+
+window wfilter {
+	parent wmain
+	title "Filter Tracks"
+	position 300 300 300 100
+	style popup
+	opacity 90
+	font {
+		name Arial
+		height 10
+	}
+
+	editbox ttext {
+		position 0 0 150 25
+		style visible
+		onchange FILTER_APPLY
+	}
+
+	button breset {
+		position 150 0 50 25
+		style visible
+		text "Reset"
+		action FILTER_RESET
+	}
+
+	checkbox cbfilename {
+		position 0 35 150 25
+		style visible checked
+		text "Search in file names"
+	}
+
+	paned pntext {
+		child ttext {
+			resize cx
+		}
+		child breset {
+			move x
+		}
+	}
+}
+
+window wplayprops {
+	title "Playback Properties"
+	position 300 100 300 500
+
+	# editbox tfilter {
+	# }
+
+	listview vconfig {
+		position 0 0 90 90
+		style visible
+		column Name {
+			width 200
+		}
+		column Value {
+			width 200
+		}
+	}
+	paned pn {
+		child vconfig {
+			resize cx cy
+		}
+	}
+}
