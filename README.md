@@ -45,7 +45,8 @@ Here’s an overview of the files and folders included in the package:
       - BG_MPlayer_Pause.bat
       - BG_MPlayer_Resume.bat
       - BG_MPlayer_Start.bat
-      - config.ini              ← Configuration file with user-adjustable settings
+      - BG_MPlayer_Uninstall.bat   ← Delete all files related to BG_MPlayer  
+      - config.ini         ← Configuration file with user-adjustable settings
       - Tools
         - fmedia
           - fmedia.exe     ← fmedia media player files (default and lightweight)
