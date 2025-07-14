@@ -13,48 +13,118 @@ if /I "%MUSIC%"=="false" (
 	goto :eof
 )
 
-set PORT=12345
+set CALC=Tools\math\calc
 
-set ENDVOL=%MUSIC_VOLUME%
+if /I "%PLAYER%"=="vlc" (
+	
+	set PORT=12345
+	
+	for /f "delims=" %%A in ('%CALC% %MUSIC_VOLUME% * 256 / 100') do set ENDVOL=%%A
+	
+) else (
+	
+	for /f "delims=" %%A in ('%CALC% %MUSIC_VOLUME% * 1 / 100') do set ENDVOL=%%A
+
+)
 
 if /I "%NON_STOP%"=="true" (
-	if /I "%FADE_TIME%"=="disabled" (
-		Tools\nircmd\nircmd execmd "echo volume %MUSIC_VOLUME% | Tools\ncat\ncat localhost %PORT%"
-		endlocal
-		goto :eof
+	
+	if /I "%PLAYER%"=="vlc" (
+	
+		for /f "delims=" %%A in ('%CALC% %NON_STOP_VOLUME% * 1 / 100') do set STARTVOL=%%A
+		
+	) else (
+	
+		for /f "delims=" %%A in ('%CALC% %NON_STOP_VOLUME% * 1 / 100') do set STARTVOL=%%A
+		
 	)
-	set STARTVOL=%NON_STOP_VOLUME%
+	
+	if /I "%FADE_TIME%"=="none" (
+	
+		if /I "%PLAYER%"=="vlc" (
+		
+			Tools\nircmd\nircmd execmd "echo volume %MUSIC_VOLUME% | Tools\ncat\ncat localhost %PORT%"
+			
+			endlocal
+			
+			goto :eof
+			
+		) else (
+		
+			Tools\nircmd\nircmd setappvolume fmedia.exe %MUSIC_VOLUME%
+			
+			endlocal
+			
+			goto :eof
+			
+		)
+	)
+	
 ) else (
+
 	set STARTVOL=0
+	
 )
 
 if /I "%FADE_TIME%"=="fast" (
+
 	set FADE_MS=1000
+	
 ) else if /I "%FADE_TIME%"=="normal" (
+
 	set FADE_MS=2500
+	
 ) else if /I "%FADE_TIME%"=="slow" (
+
 	set FADE_MS=5000
+	
 ) else (
+
 	set FADE_MS=1000
+	
 )
 
 rem time in milliseconds for each step
 set /A INTERVAL=100
 
-set /A STEPS=FADE_MS / INTERVAL
+for /f "delims=" %%A in ('%CALC% %FADE_MS% / %INTERVAL%') do set STEPS=%%A
 
 echo WScript.Sleep %INTERVAL% > sleep.vbs
 
 if /I "%NON_STOP%"=="false" (
-	Tools\nircmd\nircmd execmd "echo pause | Tools\ncat\ncat localhost %PORT%"
+	
+	if /I "%PLAYER%"=="vlc" (
+	
+		Tools\nircmd\nircmd execmd "echo pause | Tools\ncat\ncat localhost %PORT%"
+	
+	) else (
+	
+		Tools\nircmd\nircmd execmd "Tools\fmedia\fmedia --globcmd=unpause --globcmd.pipe-name=fmedia"
+	
+	)
+
 )
 
 for /L %%i in (1,1,%STEPS%) do (
-	set /A NEWVOL=STARTVOL + ^(^(ENDVOL - STARTVOL^) * %%i / STEPS^)
+
+	for /f "delims=" %%A in ('%CALC% %STARTVOL% + ^(^(%ENDVOL% - %STARTVOL%^) * %%i / %STEPS%^)') do set NEWVOL=%%A
+	
 	rem echo Step %%i: !NEWVOL!
-	Tools\nircmd\nircmd execmd "echo volume !NEWVOL! | Tools\ncat\ncat localhost %PORT%"
+	
+	if /I "%PLAYER%"=="vlc" (
+	
+		Tools\nircmd\nircmd execmd "echo volume !NEWVOL! | Tools\ncat\ncat localhost %PORT%"
+		
+	) else (
+	
+		Tools\nircmd\nircmd setappvolume fmedia.exe !NEWVOL!
+		
+	)
+	
 	cscript //NoLogo sleep.vbs
+	
 )
 
 del sleep.vbs
+
 endlocal
