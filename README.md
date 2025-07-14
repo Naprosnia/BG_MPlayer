@@ -87,9 +87,29 @@ Each option is explained with comments directly in the file.
 
 ---
 
-### 🎧 Player Options
+## ⚠️ Performance Notice
 
-You can choose which player to use by setting the `PLAYER` value in `config.ini`:
+Running ES-DE and BG_MPlayer from an external drive (e.g. USB) may result in significant delays, especially during VLC startup.
+For optimal performance, it's recommended to install and run from a local/internal drive.
 
-```ini
-PLAYER=fmedia
+---
+
+## ❗ Disclaimer
+
+This project is **not actively maintained**. It was developed for **my personal use**, and I'm sharing it in case others find it useful too.
+
+Feel free to use or adapt it as you like — no guarantees or official support are provided.
+
+---
+
+## 💬 Contact
+
+You can find me on the official **ES-DE Frontend** Discord:  
+🔗 https://discord.gg/stRVK9gMuE
+
+---
+
+## 📄 License
+
+This project is licensed under the **GNU General Public License v3.0**.  
+See the [LICENSE](LICENSE) file for details.
