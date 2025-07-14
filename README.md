@@ -90,7 +90,7 @@ Each option is explained with comments directly in the file.
 ## ⚠️ Performance Notice
 
 Running ES-DE and BG_MPlayer from an external drive (e.g. USB) may result in significant delays, especially during VLC startup.
-For optimal performance, it's recommended to install and run from a local/internal drive.
+For optimal performance, it's recommended to install and run from a local/internal drive — or use the fmedia player, which should work fine even on slower systems.
 
 ---
 
