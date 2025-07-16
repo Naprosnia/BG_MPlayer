@@ -38,6 +38,10 @@ Here’s an overview of the files and folders included in the package:
         - BG_MPlayer_game-start.bat
       - quit
         - BG_MPlayer_quit.bat
+      - screensaver-end
+        - BG_MPlayer_screensaver-end.bat
+      - screensaver-start
+        - BG_MPlayer_screensaver-start.bat
       - startup
         - BG_MPlayer_startup.bat
     - BG_MPlayer
@@ -82,6 +86,7 @@ Inside that file, you can:
 - Choose the **audio player** (`fmedia` or `vlc`)
 - Configure **fade in/out effects**
 - Enable playback **during gameplay**
+- Control music behavior **during screensaver**:
 - Tweak other small options to better suit your preferences
 
 Each option is explained with comments directly in the file.
