@@ -8,6 +8,8 @@ echo It will remove the following:
 echo.
 echo   ..\ES-DE\scripts\game-end\BG_MPlayer_game-end.bat
 echo   ..\ES-DE\scripts\game-start\BG_MPlayer_game-start.bat
+echo   ..\ES-DE\scripts\screensaver-end\BG_MPlayer_screensaver-end.bat
+echo   ..\ES-DE\scripts\screensaver-start\BG_MPlayer_screensaver-start.bat
 echo   ..\ES-DE\scripts\quit\BG_MPlayer_quit.bat
 echo   ..\ES-DE\scripts\startup\BG_MPlayer_startup.bat
 echo   ..\ROMs\music\demo_music.mp3
@@ -27,6 +29,8 @@ echo Deleting BG_MPlayer files...
 
 del /f /q "..\ES-DE\scripts\game-end\BG_MPlayer_game-end.bat"
 del /f /q "..\ES-DE\scripts\game-start\BG_MPlayer_game-start.bat"
+del /f /q "..\ES-DE\scripts\screensaver-end\BG_MPlayer_screensaver-end.bat"
+del /f /q "..\ES-DE\scripts\screensaver-start\BG_MPlayer_screensaver-start.bat"
 del /f /q "..\ES-DE\scripts\quit\BG_MPlayer_quit.bat"
 del /f /q "..\ES-DE\scripts\startup\BG_MPlayer_startup.bat"
 del /f /q "..\ROMs\music\demo_music.mp3"

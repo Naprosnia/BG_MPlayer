@@ -15,6 +15,8 @@ if /I "%MUSIC%"=="false" (
 
 set CALC=Tools\math\calc
 
+set STARTVOL=0
+
 if /I "%PLAYER%"=="vlc" (
 	
 	set PORT=12345
@@ -27,11 +29,31 @@ if /I "%PLAYER%"=="vlc" (
 
 )
 
+if /I "%1"=="--screensaver" (
+
+	if /I "%SCREENSAVER_MUSIC%"=="true" (
+	
+		if /I "%PLAYER%"=="vlc" (
+	
+			for /f "delims=" %%A in ('%CALC% %SCREENSAVER_VOLUME% * 256 / 100') do set STARTVOL=%%A
+			
+		) else (
+		
+			for /f "delims=" %%A in ('%CALC% %SCREENSAVER_VOLUME% * 1 / 100') do set STARTVOL=%%A
+			
+		)
+		
+		goto fadeProcess
+	
+	)
+
+)
+
 if /I "%NON_STOP%"=="true" (
 	
 	if /I "%PLAYER%"=="vlc" (
 	
-		for /f "delims=" %%A in ('%CALC% %NON_STOP_VOLUME% * 1 / 100') do set STARTVOL=%%A
+		for /f "delims=" %%A in ('%CALC% %NON_STOP_VOLUME% * 256 / 100') do set STARTVOL=%%A
 		
 	) else (
 	
@@ -60,11 +82,9 @@ if /I "%NON_STOP%"=="true" (
 		)
 	)
 	
-) else (
-
-	set STARTVOL=0
-	
 )
+
+:fadeProcess
 
 if /I "%FADE_TIME%"=="fast" (
 
@@ -91,6 +111,26 @@ for /f "delims=" %%A in ('%CALC% %FADE_MS% / %INTERVAL%') do set STEPS=%%A
 
 echo WScript.Sleep %INTERVAL% > sleep.vbs
 
+if /I "%1"=="--screensaver" (
+	
+	if /I "%SCREENSAVER_MUSIC%"=="false" ( 
+	
+		if /I "%PLAYER%"=="vlc" (
+		
+			Tools\nircmd\nircmd execmd "echo pause | Tools\ncat\ncat localhost %PORT%"
+		
+		) else (
+		
+			Tools\nircmd\nircmd execmd "Tools\fmedia\fmedia --globcmd=unpause --globcmd.pipe-name=fmedia"
+		
+		)
+	
+	)
+	
+	goto volumeProcess
+
+)
+
 if /I "%NON_STOP%"=="false" (
 	
 	if /I "%PLAYER%"=="vlc" (
@@ -102,8 +142,9 @@ if /I "%NON_STOP%"=="false" (
 		Tools\nircmd\nircmd execmd "Tools\fmedia\fmedia --globcmd=unpause --globcmd.pipe-name=fmedia"
 	
 	)
-
 )
+
+:volumeProcess
 
 for /L %%i in (1,1,%STEPS%) do (
 

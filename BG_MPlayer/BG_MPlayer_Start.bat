@@ -19,6 +19,8 @@ if /I "%MUSIC%"=="false" (
 
 set CALC=Tools\math\calc
 
+set STARTVOL=0
+
 if /I "%PLAYER%"=="vlc" (
 	
 	set PORT=12345
@@ -39,7 +41,7 @@ if /I "%PLAYER%"=="vlc" (
 	
 	timeout /T 2 >nul
 	
-	rem Tools\nircmd\nircmd execmd "Tools\fmedia\fmedia --globcmd=clear --globcmd.pipe-name=fmedia"
+	Tools\nircmd\nircmd execmd "Tools\fmedia\fmedia --globcmd=clear --globcmd.pipe-name=fmedia"
 	
 	Tools\nircmd\nircmd setappvolume fmedia.exe 0
 	
@@ -48,8 +50,6 @@ if /I "%PLAYER%"=="vlc" (
 	for /f "delims=" %%A in ('%CALC% %MUSIC_VOLUME% * 1 / 100') do set ENDVOL=%%A
 	
 )
-
-set STARTVOL=0
 
 if /I "%FADE_TIME%"=="fast" (
 
