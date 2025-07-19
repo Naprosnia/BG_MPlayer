@@ -119,3 +119,11 @@ You can find me on the official **ES-DE Frontend** Discord:
 
 This project is licensed under the **GNU General Public License v3.0**.  
 See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🍺 Support
+
+If you find this project useful and would like to support my work, consider offering me a beer:  
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.me/naprosnia)
